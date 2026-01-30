@@ -5,7 +5,10 @@ export interface Camper {
   rating: number;
   location: string;
   description: string;
-  gallery: string[];
+  gallery:{
+    thumb :string;
+    original:string;
+  } [];
   reviews: Review[];
   transmission?: string;
   engine?: string;

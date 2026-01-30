@@ -3,6 +3,11 @@
 import { useEffect } from "react";
 import { useCampersStore } from "@/store/useCampersStore";
 import { useState } from "react";
+import CamperCard from "@/components/CamperCard/CamperCard";
+import { Loader } from "@/components/Loader/Loader";
+
+
+
 
 
 export default function CatalogPage() {
@@ -48,9 +53,7 @@ useEffect(() => {
 }, [filters, fetchCampersList]);
 
 
-//   useEffect(() => {
-//     fetchCampersList();
-//   }, [fetchCampersList]);
+
 
   return (
     <div>
@@ -168,20 +171,18 @@ useEffect(() => {
   Reset Filters
 </button>
 
-{loading && <p>Loading...</p>}
+{loading && <Loader variant="inline" />}
 
       {campers.map((camper) => (
-        <div key={camper.id}>
-          <h3>{camper.name}</h3>
-          <p>{camper.location}</p>
-
-          <p>{camper.price.toFixed(2)}</p>
-        </div>
+        <CamperCard key={camper.id} camper={camper}/>
       ))}
 
-      {hasMore && !loading && (
-        <button onClick={loadMore}>Load More</button>
-      )}
+      {hasMore && (
+  <button onClick={loadMore} disabled={loading}>
+    {loading ? <Loader variant="inline" /> : "Load More"}
+  </button>
+)}
+
     </div>
   );
 }

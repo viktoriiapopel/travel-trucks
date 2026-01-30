@@ -1,0 +1,37 @@
+.hero {
+  height: 100vh;
+  background-image: url("/hero.jpg"); /* поклади картинку в public */
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay {
+  text-align: center;
+  background: rgba(0, 0, 0, 0.4);
+  padding: 40px;
+  border-radius: 12px;
+  color: white;
+}
+
+.title {
+  font-size: 48px;
+  margin-bottom: 16px;
+}
+
+.subtitle {
+  font-size: 18px;
+  margin-bottom: 24px;
+}
+
+.button {
+  padding: 12px 24px;
+  background-color: #e44848;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 16px;
+}

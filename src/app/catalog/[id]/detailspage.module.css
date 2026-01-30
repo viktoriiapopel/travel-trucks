@@ -1,0 +1,17 @@
+.tabs button {
+  cursor: pointer;
+}
+
+.detailsLayout {
+  display: flex;
+  gap: 40px;
+  margin-top: 40px;
+}
+
+.leftColumn {
+  flex: 2;
+}
+
+.rightColumn {
+  flex: 1;
+}

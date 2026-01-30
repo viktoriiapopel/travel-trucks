@@ -13,7 +13,7 @@ interface Filters {
 
 interface CampersState {
   campers: Camper[];
-  favorites: Camper[];
+  favorites: string[];
   filters: Filters;
   page: number;
   hasMore: boolean;
@@ -23,7 +23,7 @@ interface CampersState {
   resetCampers: () => void;
   fetchCampersList: () => Promise<void>;
   loadMore: () => Promise<void>;
-  toggleFavorite: (camper: Camper) => void;
+  toggleFavorite: (id: string) => void;
 }
 
 export const useCampersStore = create<CampersState>()(
@@ -83,15 +83,20 @@ set((state) => ({
 }));
 
 
-        //   set((state) => ({
-        //     campers: [...state.campers, ...data],
-        //     hasMore: data.length === 4,
-        //   }));
         } catch (error) {
           console.error("Fetch error:", error);
         } finally {
           set({ loading: false });
         }
+      },
+      applyFilters: async () => {
+        set({
+          campers: [],
+          page: 1,
+          hasMore: true,
+        });
+
+        await get().fetchCampersList();
       },
 
       loadMore: async () => {
@@ -99,28 +104,23 @@ set((state) => ({
         await get().fetchCampersList();
       },
 
-      toggleFavorite: (camper) =>
+      toggleFavorite: (id) =>
         set((state) => {
-          const exists = state.favorites.find(
-            (item) => item.id === camper.id
-          );
+          const exists = state.favorites.includes(id);
 
-          if (exists) {
-            return {
-              favorites: state.favorites.filter(
-                (item) => item.id !== camper.id
-              ),
-            };
-          }
-
-          return { favorites: [...state.favorites, camper] };
+          return {
+            favorites:exists? state.favorites.filter((favID) => favID !== id)
+            : [...state.favorites, id],
+          };
         }),
-    }),
-    {
+      }),
+         {
       name: "favorites-storage",
       partialize: (state) => ({
         favorites: state.favorites,
       }),
     }
+
+    
   )
-);
+); 
