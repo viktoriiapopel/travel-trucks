@@ -61,7 +61,6 @@ useEffect(() => {
   return (
     <div className={css.catalog_wrapper}>
       <aside className={css.filters}>    
-      {/* search */}
       <div>
         <p className={css.text}>Location</p>
   <input

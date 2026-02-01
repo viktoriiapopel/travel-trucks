@@ -1,86 +1,98 @@
 .wrapper {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 40px;
+max-width: 1312px;
+margin: 0 auto;
+padding: 40px;
 }
 
 .header {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-start;
-  margin-bottom: 24px;
+display: flex;
+justify-content: space-between;
+align-items: flex-start;
+margin-bottom: 24px;
 }
 
 .title {
-  font-size: 32px;
-  font-weight: 700;
-  margin-bottom: 8px;
+font-size: 32px;
+font-weight: 700;
+margin-bottom: 8px;
 }
 
 .meta {
-  display: flex;
-  gap: 16px;
-  font-size: 14px;
-  color: #666;
+display: flex;
+gap: 16px;
+font-size: 14px;
+color: #666;
 }
 
 .price {
-  font-size: 24px;
-  font-weight: 700;
+font-size: 24px;
+font-weight: 700;
 }
 
 .gallery {
-  display: flex;
-  gap: 16px;
-  margin: 24px 0;
+display: flex;
+gap: 16px;
+margin: 24px 0;
 }
 
 .galleryImage {
-   width: 260px;
-  height: 200px;
-  border-radius: 16px;
-  object-fit: cover;
+width: 260px;
+height: 200px;
+border-radius: 16px;
+object-fit: cover;
 }
 
 .description {
-  max-width: 800px;
-  color: #555;
-  margin-bottom: 32px;
-  line-height: 1.6;
+max-width: 800px;
+color: #555;
+margin-bottom: 32px;
+line-height: 1.6;
 }
 
 .tabs {
-  display: flex;
-  gap: 32px;
-  border-bottom: 1px solid #eee;
-  margin-bottom: 32px;
+display: flex;
+gap: 24px;
+position: relative;
+border-bottom: 1px solid #e0e0e0; 
 }
 
 .tabs button {
-  background: none;
-  border: none;
-  padding: 12px 0;
-  font-weight: 500;
-  cursor: pointer;
+background: none;
+border: none;
+font-size: 16px;
+padding: 8px 0;
+cursor: pointer;
+position: relative;
 }
 
 .active {
-  border-bottom: 3px solid #e53935;
+color: #e53935;
+}
+
+.active::after {
+content: "";
+position: absolute;
+left: 0;
+bottom: -1px; 
+width: 100%;
+height: 3px;
+background-color: #e53935;
 }
 
 .bottomSection {
-  display: flex;
-  gap: 40px;
+display: flex;
+gap: 40px;
+margin-top: 44px;
 }
 
 .bottomSection {
-  display: flex;
-  gap: 40px;
+display: flex;
+gap: 40px;
 }
 
 .leftColumn,
 .rightColumn {
-  background: #f9f9f9;
-  padding: 32px;
-  border-radius: 20px;
+background: #f9f9f9;
+padding: 32px;
+border-radius: 20px;
 }

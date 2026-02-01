@@ -41,7 +41,7 @@ export default function CamperDetailsPage() {
 
   if (loading) return <Loader variant="fullscreen" />;
   if (!camper) return <p>Camper not found</p>;
-  console.log("GALLERY:", camper.gallery);
+
 
 
   return (
@@ -61,7 +61,7 @@ export default function CamperDetailsPage() {
     
 
   </div>
-   {/* Галерея */}
+   
       <div className={css.gallery}>
         {camper.gallery
           .filter((img) => img?.thumb)
@@ -80,7 +80,7 @@ export default function CamperDetailsPage() {
       <p className={css.description}>{camper.description}</p>
     
 
-    {/* Tabs */}
+ 
     <div className={css.tabs}>
       <button
         className={activeTab === "features" ? css.active : ""}
@@ -95,6 +95,7 @@ export default function CamperDetailsPage() {
       >
         Reviews
       </button>
+      <div className={css.divider}></div>
     </div>
     <div className={css.bottomSection}>
       <div className={css.leftColumn}>

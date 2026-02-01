@@ -1,24 +1,24 @@
 .hero {
-  height: calc(100dvh - 80px);
-  background-image: url("/hero.jpg"); /* поклади картинку в public */
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  align-items: center;
+height: calc(100dvh - 80px);
+background-image: url("/hero.jpg"); 
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+display: flex;
+align-items: center;
  
 }
 
 .overlay {
-  width: 571px;
-  height: 176px;
-  color: white;
-  text-align: left;
-  margin-left: 64px;
+width: 571px;
+height: 176px;
+color: white;
+text-align: left;
+margin-left: 64px;
 }
 
 .title {
-  font-family: var(--font-family);
+font-family: var(--font-family);
 font-weight: 600;
 font-size: 48px;
 line-height: 67%;
@@ -26,7 +26,7 @@ color: var(--inputs);
 }
 
 .subtitle {
-  font-family: var(--font-family);
+font-family: var(--font-family);
 font-weight: 600;
 font-size: 24px;
 line-height: 133%;
@@ -35,8 +35,8 @@ margin-top: 16px;
 }
 
 .button {
-    border: none;
-  border-radius: 200px;
+border: none;
+border-radius: 200px;
 padding: 16px 60px;
 height: 56px;
 background: #e44848;
@@ -56,5 +56,5 @@ align-items: center;
 
 .button:hover,
 .button:focus {
-    background: #D84343;
+background: #D84343;
 }

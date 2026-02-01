@@ -13,14 +13,6 @@ export interface FetchCampersParams {
   bathroom?: boolean;
 }
 
-// export const fetchCampers = async (
-//   params?: FetchCampersParams
-// ): Promise<Camper[]> => {
-//   const response = await axios.get(`${BASE_URL}/campers`, {
-//     params,
-//   });
-//   return response.data;
-// };
 
 export const fetchCampers = async (
   params?: FetchCampersParams

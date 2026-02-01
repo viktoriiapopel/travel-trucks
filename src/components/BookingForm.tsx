@@ -35,12 +35,12 @@ export default function BookingForm() {
       setLoading(true);
       setSuccess(false);
 
-      // Імітація запиту (бо бекенд бронювання не передбачений)
+      
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
       setSuccess(true);
 
-      // Очистка форми
+      
       setFormData({
         name: "",
         email: "",
@@ -57,7 +57,7 @@ export default function BookingForm() {
   return (
     <div className={css.wrapper}>
       <h3 className={css.title}>Book your camper now</h3>
-
+<p className={css.text_book}>Stay connected! We are always ready to help you.</p>
       <form onSubmit={handleSubmit} className={css.form}>
         <input
           type="text"
@@ -92,7 +92,7 @@ export default function BookingForm() {
           onChange={handleChange}
         />
 
-        <button type="submit" disabled={loading}>
+        <button className={css.button} type="submit" disabled={loading}>
           {loading ? "Sending..." : "Send"}
         </button>
       </form>
