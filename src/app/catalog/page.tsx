@@ -5,7 +5,7 @@ import { useCampersStore } from "@/store/useCampersStore";
 import { useState } from "react";
 import CamperCard from "@/components/CamperCard/CamperCard";
 import { Loader } from "@/components/Loader/Loader";
-
+import css from "@/app/catalog/Catalog.module.css"
 
 
 
@@ -35,6 +35,8 @@ const resetCampers = useCampersStore((state) => state.resetCampers);
     AC: false,
     kitchen: false,
     bathroom: false,
+    TV: false,
+    automatic: false,
   });
 
   setLocationInput("");
@@ -44,8 +46,9 @@ const isDefaultFilters =
   !filters.form &&
   !filters.AC &&
   !filters.kitchen &&
-  !filters.bathroom;
-
+  !filters.bathroom &&
+  !filters.TV &&
+  !filters.automatic;
 
 
 useEffect(() => {
@@ -56,122 +59,205 @@ useEffect(() => {
 
 
   return (
-    <div>
-      <h1>Catalog</h1>
-      <div style={{ marginBottom: "20px" }}>
+    <div className={css.catalog_wrapper}>
+      <aside className={css.filters}>    
+      {/* search */}
+      <div>
+        <p className={css.text}>Location</p>
   <input
     type="text"
-    placeholder="Search by location"
+    placeholder="Kyiv, Ukraine"
     value={locationInput}
     onChange={(e) => setLocationInput(e.target.value)}
   />
 
-  <button
-    // onClick={async () => {
-    //   resetCampers();
-    //   setFilters({ location: locationInput });
-    //   await fetchCampersList();
-    // }}
+
+</div>
+<p className={css.text}>Filters</p>
+{/* equipment */}
+<h3 className={css.text_h3}>Vehicle equipment</h3>
+<div className={css.divider}></div>
+<div className={css.eqipment_list} >
+  
+
+  <label className={`${css.filter_button} ${filters.AC ? css.active : ""}`}>
+  <input
+    type="checkbox"
+    checked={filters.AC}
+    onChange={(e) => {
+      resetCampers();
+      setFilters({ AC: e.target.checked });
+    }}
+  />
+  
+  <svg width="24" height="24">
+    <use href="/icons.svg#wind" />
+  </svg>
+
+  AC
+</label>
+
+<label className={`${css.filter_button} ${filters.automatic ? css.active : ""}`}>
+  <input
+    type="checkbox"
+    checked={filters.automatic}
+    onChange={(e) => {
+      resetCampers();
+      setFilters({ automatic: e.target.checked });
+    }}
+  />
+  
+  <svg width="24" height="24">
+    <use href="/icons.svg#diagram" />
+  </svg>
+
+  Automatic
+</label>
+
+<label className={`${css.filter_button} ${filters.kitchen ? css.active : ""}`}>
+  <input
+    type="checkbox"
+    checked={filters.kitchen}
+    onChange={(e) => {
+      resetCampers();
+      setFilters({ kitchen: e.target.checked });
+    }}
+  />
+  
+  <svg width="24" height="24">
+    <use href="/icons.svg#cup-hot" />
+  </svg>
+
+  Kitchen
+</label>
+
+<label className={`${css.filter_button} ${filters.TV ? css.active : ""}`}>
+  <input
+    type="checkbox"
+    checked={filters.TV}
+    onChange={(e) => {
+      resetCampers();
+      setFilters({ TV: e.target.checked });
+    }}
+  />
+  
+  <svg width="24" height="24">
+    <use href="/icons.svg#tv" />
+  </svg>
+
+  TV
+</label>
+<label className={`${css.filter_button} ${filters.bathroom ? css.active : ""}`}>
+  <input
+    type="checkbox"
+    checked={filters.bathroom}
+    onChange={(e) => {
+      resetCampers();
+      setFilters({ bathroom: e.target.checked });
+    }}
+  />
+  
+  <svg width="24" height="24">
+    <use href="#ph_shower" />
+  </svg>
+ <svg width="24" height="24">
+  <use href="#ph_shower-small" />
+</svg>
+
+
+
+  Bathroom
+</label>
+</div>
+<h3 className={css.text_h3}>Vehicle type</h3>
+<div className={css.divider}></div>
+ {/* vehicle type */}
+          <div className={css.vehicle_type}>
+ 
+
+<label
+  className={`${css.filter_button} ${
+    filters.form === "van" ? css.active : ""
+  }`}
+>
+  <input
+    type="radio"
+    name="form"
+    value="van"
+    checked={filters.form === "van"}
+    onChange={() => {
+      resetCampers();
+      setFilters({ form: "van" });
+    }}
+  />
+
+  <svg width="24" height="24">
+    <use href="/icons.svg#icon-panelTruck" />
+  </svg>
+
+  Van
+</label>
+
+<label
+  className={`${css.filter_button} ${
+    filters.form === "fullyIntegrated" ? css.active : ""
+  }`}
+>
+  <input
+    type="radio"
+    name="form"
+    value="fullyIntegrated"
+    checked={filters.form === "fullyIntegrated"}
+    onChange={() => {
+      resetCampers();
+      setFilters({ form: "fullyIntegrated" });
+    }}
+  />
+
+  <svg width="24" height="24">
+    <use href="/icons.svg#icon-panelTruck" />
+  </svg>
+
+  Fully Integrated
+</label>
+
+<label
+  className={`${css.filter_button} ${
+    filters.form === "alcove" ? css.active : ""
+  }`}
+>
+  <input
+    type="radio"
+    name="form"
+    value="alcove"
+    checked={filters.form === "alcove"}
+    onChange={() => {
+      resetCampers();
+      setFilters({ form: "alcove" });
+    }}
+  />
+
+  <svg width="24" height="24">
+    <use href="/icons.svg#icon-panelTruck" />
+  </svg>
+
+  Alcove
+</label>
+
+
+</div>
+ 
+<button
     onClick={() => {
   resetCampers();
   setFilters({ location: locationInput });
 }}
-
   >
     Search
   </button>
-</div>
+</aside>
 
-
-          <div style={{ marginBottom: "20px" }}>
-  <p>Vehicle type:</p>
-
-  <label>
-    <input
-      type="radio"
-      name="form"
-      value=""
-      checked={filters.form === ""}
-      onChange={() => {resetCampers();setFilters({ form: "" })}}
-    />
-    All
-  </label>
-
-  <label>
-    <input
-      type="radio"
-      name="form"
-      value="panelTruck"
-      checked={filters.form === "panelTruck"}
-            onChange={() => {resetCampers();setFilters({ form: "panelTruck" })}}
-    />
-    Panel Truck
-  </label>
-
-  <label>
-    <input
-      type="radio"
-      name="form"
-      value="fullyIntegrated"
-      checked={filters.form === "fullyIntegrated"}
-      onChange={() => {resetCampers();setFilters({ form: "fullyIntegrated" })}}
-    />
-    Fully Integrated
-  </label>
-
-  <label>
-    <input
-      type="radio"
-      name="form"
-      value="alcove"
-      checked={filters.form === "alcove"}
-      onChange={() => {resetCampers();setFilters({ form: "alcove" })}}
-    />
-    Alcove
-  </label>
-</div>
-<div style={{ marginBottom: "20px" }}>
-  <p>Equipment:</p>
-
-  <label>
-    <input
-      type="checkbox"
-      checked={filters.AC}
-      onChange={(e) =>
-        {resetCampers();setFilters({ AC: e.target.checked })}
-      }
-    />
-    AC
-  </label>
-
-  <label>
-    <input
-      type="checkbox"
-      checked={filters.kitchen}
-      onChange={(e) =>
-        {resetCampers();setFilters({ kitchen: e.target.checked })}
-      }
-    />
-    Kitchen
-  </label>
-
-  <label>
-    <input
-      type="checkbox"
-      checked={filters.bathroom}
-      onChange={(e) =>
-        {resetCampers();setFilters({ bathroom: e.target.checked })}
-      }
-    />
-    Bathroom
-  </label>
-</div>
-
-<button onClick={handleResetFilters} disabled={isDefaultFilters}>
-  Reset Filters
-</button>
-
-{loading && <Loader variant="inline" />}
+<section className={css.results}>{loading && <Loader variant="inline" />}
 
       {campers.map((camper) => (
         <CamperCard key={camper.id} camper={camper}/>
@@ -182,6 +268,8 @@ useEffect(() => {
     {loading ? <Loader variant="inline" /> : "Load More"}
   </button>
 )}
+</section>
+
 
     </div>
   );

@@ -9,6 +9,8 @@ interface Filters {
   AC: boolean;
   kitchen: boolean;
   bathroom: boolean;
+  TV:boolean;
+  automatic: boolean;
 }
 
 interface CampersState {
@@ -37,6 +39,8 @@ export const useCampersStore = create<CampersState>()(
         AC: false,
         kitchen: false,
         bathroom: false,
+        TV: false,
+        automatic: false,
       },
       page: 1,
       hasMore: true,

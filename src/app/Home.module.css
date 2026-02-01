@@ -1,37 +1,60 @@
 .hero {
-  height: 100vh;
+  height: calc(100dvh - 80px);
   background-image: url("/hero.jpg"); /* поклади картинку в public */
   background-size: cover;
   background-position: center;
+  background-repeat: no-repeat;
   display: flex;
   align-items: center;
-  justify-content: center;
+ 
 }
 
 .overlay {
-  text-align: center;
-  background: rgba(0, 0, 0, 0.4);
-  padding: 40px;
-  border-radius: 12px;
+  width: 571px;
+  height: 176px;
   color: white;
+  text-align: left;
+  margin-left: 64px;
 }
 
 .title {
-  font-size: 48px;
-  margin-bottom: 16px;
+  font-family: var(--font-family);
+font-weight: 600;
+font-size: 48px;
+line-height: 67%;
+color: var(--inputs);
 }
 
 .subtitle {
-  font-size: 18px;
-  margin-bottom: 24px;
+  font-family: var(--font-family);
+font-weight: 600;
+font-size: 24px;
+line-height: 133%;
+color: var(--inputs);
+margin-top: 16px;
 }
 
 .button {
-  padding: 12px 24px;
-  background-color: #e44848;
-  color: white;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-size: 16px;
+    border: none;
+  border-radius: 200px;
+padding: 16px 60px;
+height: 56px;
+background: #e44848;
+margin-top: 40px;
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+letter-spacing: -0.01em;
+color: var(--white);
+white-space: nowrap;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.button:hover,
+.button:focus {
+    background: #D84343;
 }

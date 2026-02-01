@@ -1,0 +1,38 @@
+.header_wrapper{
+border-bottom: 1px solid var(--badges);
+padding: 24px 64px;
+height: 72px;
+background-color: #F7F7F7;
+}
+
+.logo {
+display: flex;
+align-items: center;
+position: relative;
+
+}
+
+.navigation_header {
+display: flex; 
+gap: 32px;
+position: absolute;
+left: 50%;
+transform: translateX(-50%);
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+
+
+}
+
+.navigation_link {
+color: black;
+font-weight: 400;
+transition: color 0.3s ease;
+}
+
+.active {
+color: #d84343;
+font-weight: 600;
+}

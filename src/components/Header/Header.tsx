@@ -2,34 +2,38 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import Image from "next/image";
+import css from "./Header.module.css"
 
 export default function Header() {
   const pathname = usePathname();
 
   return (
-    <header>
-      <nav style={{ display: "flex", justifyContent: "space-between", padding: "20px" }}>
+    <header className={css.header_wrapper}>
+      <nav className={css.logo}>
         <Link href="/">
-          <strong>TravelTrucks</strong>
+          <Image
+          src="/logo.svg"
+          alt="TravelTrucks"
+          width={136}
+          height={16}/>
         </Link>
 
-        <div style={{ display: "flex", gap: "20px" }}>
+        <div className={css.navigation_header}>
           <Link
             href="/"
-            style={{
-              fontWeight: pathname === "/" ? "bold" : "normal",
-            }}
+            className={`${css.navigation_link} ${
+    pathname === "/" ? css.active : ""
+  }`}
           >
             Home
           </Link>
 
           <Link
             href="/catalog"
-            style={{
-              fontWeight: pathname.startsWith("/catalog")
-                ? "bold"
-                : "normal",
-            }}
+             className={`${css.navigation_link} ${
+    pathname.startsWith("/catalog") ? css.active : ""
+  }`}
           >
             Catalog
           </Link>

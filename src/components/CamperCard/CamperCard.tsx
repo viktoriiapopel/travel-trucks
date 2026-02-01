@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Camper } from "@/types/camper";
 import { useCampersStore } from "@/store/useCampersStore";
 import Image from "next/image";
+import css from "./CamperCard.module.css"
 
 interface Props {
   camper: Camper;
