@@ -46,17 +46,23 @@ export default function CamperDetailsPage() {
 
   return (
   <div className={css.wrapper}>
-    <div style={{ padding: "20px" }}>
-      <h1>{camper.name}</h1>
+    <div className={css.header}>
+      <h1 className={css.title}>{camper.name}</h1>
+        <div className={css.meta}>
+          <span>⭐ {camper.rating}</span>
+          <span>{camper.location}</span>
+        </div>
+      
 
-      <p>
-        ⭐ {camper.rating} | {camper.location}
-      </p>
+      <div className={css.price}>
+        €{camper.price.toFixed(2)}
+      </div>
 
-      <h2>{camper.price.toFixed(2)}</h2>
+    
 
-      {/* Галерея */}
-      <div style={{ display: "flex", gap: "10px", margin: "20px 0" }}>
+  </div>
+   {/* Галерея */}
+      <div className={css.gallery}>
         {camper.gallery
           .filter((img) => img?.thumb)
           .map((img) => (
@@ -64,14 +70,14 @@ export default function CamperDetailsPage() {
               key={img.thumb}
               src={img.thumb}
               alt={camper.name}
-              width={200}
-              height={150}
-              style={{ borderRadius: "8px", objectFit: "cover" }}
+              width={260}
+              height={200}
+              className={css.galleryImage}
             />
           ))}
       </div>
 
-      <p>{camper.description}</p>
+      <p className={css.description}>{camper.description}</p>
     
 
     {/* Tabs */}
@@ -90,13 +96,16 @@ export default function CamperDetailsPage() {
         Reviews
       </button>
     </div>
+    <div className={css.bottomSection}>
+      <div className={css.leftColumn}>
     {activeTab === "features" && <FeaturesTab camper={camper} />}
     {activeTab === "reviews" && <ReviewsTab camper={camper} />}
-  </div>
-
-  <div className={css.rightColum}>
+    </div>
+    <div className={css.rightColum}>
     <BookingForm/>
     </div>
+    </div>
+
     </div>
 );
 

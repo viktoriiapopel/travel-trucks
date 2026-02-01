@@ -2,8 +2,8 @@
    display: flex;
   gap: 64px;
   padding: 0px 64px; 
-  max-width: 1200px;
-  margin: 0 auto; 
+  max-width: 1312px;
+  
 }
 
 .filters {
@@ -12,6 +12,9 @@
 
 .results {
   flex: 1;
+display: flex;
+  flex-direction: column;
+  gap: 24px;
 }
 
 .text {
@@ -20,6 +23,17 @@ font-weight: 400;
 font-size: 16px;
 line-height: 150%;
 color: var(--gray);
+margin-top: 40px;
+}
+
+.location_input{
+    border: none;
+margin-top: 8px;
+border-radius: 12px;
+padding: 18px 218px 18px 20px;
+width: 360px;
+height: 56px;
+background: #F7F7F7;
 }
 
 .text_h3{
@@ -28,6 +42,7 @@ font-weight: 600;
 font-size: 20px;
 line-height: 120%;
 color: var(--main);
+margin-top: 32px;
 }
 .divider{
  width: 100%;
@@ -84,4 +99,42 @@ color: var(--main);
 .icon {
   display: block;
   color: #101828;
+}
+
+.button {
+border: none;
+border-radius: 200px;
+padding: 16px 60px;
+height: 56px;
+background: #e44848;
+margin-top: 40px;
+font-family: var(--font-family);
+font-weight: 500;
+font-size: 16px;
+line-height: 150%;
+letter-spacing: -0.01em;
+color: var(--white);
+white-space: nowrap;
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+
+.button:hover,
+.button:focus {
+    background: #D84343;
+}
+
+.rating{
+     color: #ffc531;
+  font-weight: 500;
+}
+.button_load{
+border: 1px solid #F2F4F7;
+border-radius: 200px;
+padding: 16px 32px;
+width: 145px;
+height: 56px; 
+ margin-top: 8px;
 }

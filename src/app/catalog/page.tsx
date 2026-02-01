@@ -65,6 +65,7 @@ useEffect(() => {
       <div>
         <p className={css.text}>Location</p>
   <input
+  className={css.location_input}
     type="text"
     placeholder="Kyiv, Ukraine"
     value={locationInput}
@@ -248,6 +249,7 @@ useEffect(() => {
 </div>
  
 <button
+className={css.button}
     onClick={() => {
   resetCampers();
   setFilters({ location: locationInput });
@@ -264,7 +266,7 @@ useEffect(() => {
       ))}
 
       {hasMore && (
-  <button onClick={loadMore} disabled={loading}>
+  <button  className={css.button_load} onClick={loadMore} disabled={loading}>
     {loading ? <Loader variant="inline" /> : "Load More"}
   </button>
 )}
