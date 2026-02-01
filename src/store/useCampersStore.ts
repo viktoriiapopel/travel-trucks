@@ -10,7 +10,6 @@ interface Filters {
   kitchen: boolean;
   bathroom: boolean;
   TV:boolean;
-  automatic: boolean;
 }
 
 interface CampersState {
@@ -40,7 +39,6 @@ export const useCampersStore = create<CampersState>()(
         kitchen: false,
         bathroom: false,
         TV: false,
-        automatic: false,
       },
       page: 1,
       hasMore: true,

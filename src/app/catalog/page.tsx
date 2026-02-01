@@ -36,7 +36,7 @@ const resetCampers = useCampersStore((state) => state.resetCampers);
     kitchen: false,
     bathroom: false,
     TV: false,
-    automatic: false,
+    
   });
 
   setLocationInput("");
@@ -47,8 +47,7 @@ const isDefaultFilters =
   !filters.AC &&
   !filters.kitchen &&
   !filters.bathroom &&
-  !filters.TV &&
-  !filters.automatic;
+  !filters.TV;
 
 
 useEffect(() => {
@@ -97,13 +96,13 @@ useEffect(() => {
   AC
 </label>
 
-<label className={`${css.filter_button} ${filters.automatic ? css.active : ""}`}>
+{/* <label className={`${css.filter_button} ${filters.Automatic ? css.active : ""}`}>
   <input
     type="checkbox"
-    checked={filters.automatic}
+    checked={filters.Automatic}
     onChange={(e) => {
       resetCampers();
-      setFilters({ automatic: e.target.checked });
+      setFilters({ Automatic: e.target.checked });
     }}
   />
   
@@ -112,7 +111,7 @@ useEffect(() => {
   </svg>
 
   Automatic
-</label>
+</label> */}
 
 <label className={`${css.filter_button} ${filters.kitchen ? css.active : ""}`}>
   <input
@@ -177,17 +176,17 @@ useEffect(() => {
 
 <label
   className={`${css.filter_button} ${
-    filters.form === "van" ? css.active : ""
+    filters.form === "panelTruck" ? css.active : ""
   }`}
 >
   <input
     type="radio"
     name="form"
-    value="van"
-    checked={filters.form === "van"}
+    value="panelTruck"
+    checked={filters.form === "panelTruck"}
     onChange={() => {
       resetCampers();
-      setFilters({ form: "van" });
+      setFilters({ form: "panelTruck" });
     }}
   />
 
@@ -195,7 +194,7 @@ useEffect(() => {
     <use href="/icons.svg#icon-panelTruck" />
   </svg>
 
-  Van
+  panelTruck
 </label>
 
 <label
